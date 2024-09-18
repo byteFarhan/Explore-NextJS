@@ -1,6 +1,7 @@
 import React from "react";
 
 const About = () => {
+  // throw new Error("There was an huge error!");
   return (
     <div>
       <div>About Us Page</div>
