@@ -1,4 +1,4 @@
-import React from "react";
+import Button from "@/app/components/Button";
 
 const vision = () => {
   return (
@@ -10,6 +10,9 @@ const vision = () => {
         possimus at voluptates distinctio accusantium voluptatibus quos et autem
         accusamus.
       </p>
+      <div>
+        <Button />
+      </div>
     </div>
   );
 };
