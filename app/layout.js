@@ -32,6 +32,10 @@ export default function RootLayout({ children }) {
           <li>
             <Link href={"/about"}>About</Link>
           </li>
+          |
+          <li>
+            <Link href={"/blogs"}>Blogs</Link>
+          </li>
         </nav>
         <hr className="bg-black h-[2px]" />
         <main className="mt-10 space-y-5">{children}</main>
