@@ -1,5 +1,8 @@
+import { Roboto } from "next/font/google";
 import Link from "next/link";
 import React from "react";
+
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "About Us",
@@ -19,7 +22,7 @@ const AboutLayout = ({ children }) => {
         </li>
       </nav>
       <hr />
-      <div>{children}</div>
+      <div className={roboto.className}>{children}</div>
     </div>
   );
 };
