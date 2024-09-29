@@ -1,4 +1,14 @@
-import getSinglePost from "@/ilb/getSinglePost";
+import getSinglePost from "@/lib/getSinglePost";
+
+export async function generateMetadata({ params }) {
+  const { id } = params;
+  const post = await getSinglePost(id);
+  // console.log(post);
+  return {
+    title: post.title,
+    description: post.body,
+  };
+}
 
 const Post = async ({ params }) => {
   const { id } = params;

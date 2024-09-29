@@ -1,4 +1,4 @@
-import getAllPosts from "@/ilb/getAllPosts";
+import getAllPosts from "@/lib/getAllPosts";
 import Link from "next/link";
 
 const PostPage = async () => {
