@@ -1,5 +1,6 @@
 import DisplayComments from "@/app/components/DisplayComments";
 import Loader from "@/app/components/Loader";
+import getAllPosts from "@/lib/getAllPosts";
 import getPostComments from "@/lib/getPostComments";
 import getSinglePost from "@/lib/getSinglePost";
 import { Suspense } from "react";
@@ -64,3 +65,10 @@ const Post = async ({ params }) => {
 };
 
 export default Post;
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    id: post.id.toString(),
+  }));
+}
