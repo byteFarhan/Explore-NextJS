@@ -44,6 +44,10 @@ export default function RootLayout({ children }) {
       pathName: "Posts",
       path: "/posts",
     },
+    {
+      pathName: "Categories",
+      path: "/categories",
+    },
   ];
   return (
     <html lang="en" className="p-6 lg:p-8">
@@ -52,10 +56,10 @@ export default function RootLayout({ children }) {
       >
         <nav className="flex gap-6 list-none">
           {routes.map((route) => (
-            <li>
+            <li key={route.path}>
               <Link
                 className={
-                  pathName === route.path && "text-blue-700 font-medium"
+                  pathName === route.path ? "text-blue-700 font-medium" : ""
                 }
                 href={route.path}
               >
