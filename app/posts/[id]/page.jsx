@@ -10,8 +10,12 @@ export async function generateMetadata({ params }) {
   const post = await getSinglePost(id);
   // console.log(post);
   return {
-    title: post.title,
+    // title: post.title,
+    title: {
+      absolute: post.title,
+    },
     description: post.body,
+    keywords: post.body.split(" "),
   };
 }
 

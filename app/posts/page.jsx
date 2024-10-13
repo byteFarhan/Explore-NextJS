@@ -1,6 +1,10 @@
 import getAllPosts from "@/lib/getAllPosts";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Posts",
+};
+
 const PostPage = async () => {
   // async function getAllPosts() {
   //   const result = await fetch(
