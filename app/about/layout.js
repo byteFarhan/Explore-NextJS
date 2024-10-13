@@ -10,8 +10,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "About Us",
+  title: "About",
   description: "This is about us page!",
+  keywords: "This is about us page".split(" "),
 };
 
 const AboutLayout = ({ children }) => {

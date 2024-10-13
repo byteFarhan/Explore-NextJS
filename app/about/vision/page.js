@@ -30,3 +30,7 @@ const vision = () => {
 };
 
 export default vision;
+
+export const metadata = {
+  title: "Vision",
+};

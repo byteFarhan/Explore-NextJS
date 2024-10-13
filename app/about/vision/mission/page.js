@@ -13,3 +13,7 @@ const mission = () => {
 };
 
 export default mission;
+
+export const metadata = {
+  title: "Mission",
+};

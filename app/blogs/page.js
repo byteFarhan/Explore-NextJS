@@ -58,3 +58,7 @@ export function generateStaticParams() {
     id: blog.id.toString(),
   }));
 }
+
+export const metadata = {
+  title: "Blogs",
+};

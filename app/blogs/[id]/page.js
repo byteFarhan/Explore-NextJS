@@ -14,3 +14,12 @@ const BlogPage = ({ params }) => {
 };
 
 export default BlogPage;
+
+export const generateMetadata = ({ params }) => {
+  return {
+    title: `Blog ${params.id}`,
+    // title: {
+    //   absolute: `Blog ${params.id}`,
+    // },
+  };
+};
