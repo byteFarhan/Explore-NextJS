@@ -6,7 +6,7 @@ const getAllPosts = async () => {
       // cache: "force-cache" // Default beheviour
       // cache: "no-store", // not the best option
       next: {
-        revalidate: 120, // this is the best approach. It will fetch posts every 10s leater so users can get updated datas/posts.
+        revalidate: 120, // this is the best approach. It will fetch posts every 120s leater so users can get updated datas/posts.
       },
     }
   );
