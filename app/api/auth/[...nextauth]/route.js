@@ -7,6 +7,7 @@ export const authOptions = {
   secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
   session: {
     strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
   },
   providers: [
     CredentialsProvider({
@@ -41,6 +42,19 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, account, user }) {
+      // Persist the OAuth access_token and or the user id to the token right after signin
+      if (account) {
+        token.role = user.role;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.role = token.role;
+      return session;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);
@@ -53,23 +67,31 @@ const users = [
     name: "Mehedi",
     email: "m@gmail.com",
     password: "password",
+    role: "admin",
+    image: "https://picsum/photos/200/300",
   },
   {
     id: 2,
     name: "Zihad",
     email: "z@gmail.com",
     password: "password",
+    role: "admin",
+    image: "https://picsum/photos/200/300",
   },
   {
     id: 3,
     name: "Shakil",
     email: "s@gmail.com",
     password: "password",
+    role: "user",
+    image: "https://picsum/photos/200/300",
   },
   {
     id: 4,
     name: "User",
     email: "user@gmail.com",
     password: "password",
+    role: "user",
+    image: "https://picsum/photos/200/300",
   },
 ];
