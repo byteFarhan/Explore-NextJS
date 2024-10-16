@@ -9,9 +9,9 @@ export const metadata = {
 
 const PostPage = async () => {
   const authSession = await getServerSession(authOptions);
-  console.log("==============================================================");
-  console.log("authSession", authSession);
-  console.log("==============================================================");
+  // console.log("==============================================================");
+  // console.log("authSession", authSession);
+  // console.log("==============================================================");
 
   // async function getAllPosts() {
   //   const result = await fetch(

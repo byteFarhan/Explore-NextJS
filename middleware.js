@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 // export const middleware = (request) => {
@@ -31,15 +32,29 @@ import { NextResponse } from "next/server";
 // };
 
 // using middleware with browser cookies
-export const middleware = (requset) => {
-  const cookie = "farhan-mazumder";
-  const browserCookies = requset.cookies.get("token");
-  //   console.log(browserCookies);
-  if (!browserCookies || browserCookies.value !== cookie) {
-    return NextResponse.redirect(new URL("/login", requset.url));
+// export const middleware = (requset) => {
+//   const cookie = "farhan-mazumder";
+//   const browserCookies = requset.cookies.get("token");
+//   //   console.log(browserCookies);
+//   if (!browserCookies || browserCookies.value !== cookie) {
+//     return NextResponse.redirect(new URL("/login", requset.url));
+//   }
+//   return NextResponse.next();
+// };
+// export const config = {
+//   matcher: "/adminDashboard",
+// };
+
+// Another way of accessing browser cookies in middleware.js file
+export const middleware = (request) => {
+  const authToken = cookies(request).get("next-auth.session-token");
+  // console.log("authToken", authToken);
+  if (!authToken) {
+    return NextResponse.redirect(new URL("/api/auth/signin", request.url));
   }
   return NextResponse.next();
 };
+
 export const config = {
   matcher: "/adminDashboard",
 };
