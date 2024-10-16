@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
+import AuthProvider from "@/services/AuthProvider";
 // import { usePathname } from "next/navigation";
 // import getPathname from "@/lib/getPathname";
 
@@ -39,9 +40,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar></Navbar>
-        <hr className="bg-black h-[2px]" />
-        <main className="mt-10 space-y-5">{children}</main>
+        <AuthProvider>
+          <Navbar></Navbar>
+          <hr className="bg-black h-[2px]" />
+          <main className="mt-10 space-y-5">{children}</main>
+        </AuthProvider>
       </body>
     </html>
   );

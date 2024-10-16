@@ -1,11 +1,18 @@
 import getAllPosts from "@/lib/getAllPosts";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata = {
   title: "Posts",
 };
 
 const PostPage = async () => {
+  const authSession = await getServerSession(authOptions);
+  console.log("==============================================================");
+  console.log("authSession", authSession);
+  console.log("==============================================================");
+
   // async function getAllPosts() {
   //   const result = await fetch(
   //     "https://jsonplaceholder.typicode.com/posts?_limit=10"
