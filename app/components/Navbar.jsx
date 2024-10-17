@@ -84,14 +84,21 @@ const Navbar = () => {
             />
           </div>
         )}
-        <div>
+        <div className="space-x-4">
           {session.status === "unauthenticated" ? (
-            <button
-              onClick={handleLogin}
-              className="px-4 py-2 text-lg font-medium text-white bg-black rounded-md"
-            >
-              Login
-            </button>
+            <>
+              <Link href={"/api/auth/signup"} className="">
+                <button className="px-4 py-2 text-lg font-medium text-black bg-transparent border-2 border-black rounded-md">
+                  Signup
+                </button>
+              </Link>
+              <button
+                onClick={handleLogin}
+                className="px-4 py-2 text-lg font-medium text-white bg-black border-2 border-black rounded-md"
+              >
+                Login
+              </button>
+            </>
           ) : (
             <button
               onClick={handleLogout}
